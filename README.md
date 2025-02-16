@@ -12,7 +12,7 @@ Credit Simulator adalah aplikasi berbasis Java yang digunakan untuk mensimulasik
 
 ### **1️⃣ Clone Repository (Opsional)**
 ```sh
- git clone https://github.com/username/credit-simulator.git
+ git clone https://github.com/dhimaspanji/credit-simulator.git
  cd credit-simulator
 ```
 
