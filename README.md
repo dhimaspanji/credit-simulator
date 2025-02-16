@@ -1,7 +1,7 @@
 # Credit Simulator
 
 ## 📌 Deskripsi
-Credit Simulator adalah aplikasi berbasis Java yang digunakan untuk mensimulasikan cicilan kredit kendaraan berdasarkan jumlah pinjaman, DP, suku bunga, dan tenor.
+Credit Simulator adalah aplikasi berbasis Java yang digunakan untuk mensimulasikan cicilan kredit kendaraan berdasarkan jumlah pinjaman, DP, suku bunga, dan tenor. 
 
 ---
 ## ⚙️ Cara Build dengan Maven
