@@ -30,39 +30,25 @@ target/credit-simulator-1.0-SNAPSHOT.jar
 
 ### **Di Windows (cmd/PowerShell)**
 ```sh
- bin\run.bat file_input.txt
+ bin\credit-simulator.bat file_input.txt
 ```
 Atau tanpa file input:
 ```sh
- bin\run.bat
+ bin\credit-simulator.bat
 ```
 
 ### **Di Linux/Mac**
-Pastikan file `run.sh` memiliki izin eksekusi:
+Pastikan file `credit-simulator.sh` memiliki izin eksekusi:
 ```sh
- chmod +x bin/run.sh
+ chmod +x bin/credit-simulator.sh
 ```
 Lalu jalankan:
 ```sh
- ./bin/run.sh file_input.txt
+ ./bin/credit-simulator.sh file_input.txt
 ```
 Atau tanpa file input:
 ```sh
- ./bin/run.sh
-```
-
----
-## 📂 Struktur Direktori
-```
-credit-simulator/
-│── bin/
-│   ├── run.sh    # Script untuk Linux/Mac
-│   ├── run.bat   # Script untuk Windows
-│── target/
-│   ├── credit-simulator-1.0-SNAPSHOT.jar
-│── src/
-│── pom.xml
-│── README.md
+ ./bin/credit-simulator.sh
 ```
 
 ---
@@ -88,7 +74,3 @@ Untuk menjalankan unit test menggunakan Maven:
 ```sh
  mvn test
 ```
-
----
-## 📄 Lisensi
-Aplikasi ini dibuat untuk tujuan simulasi kredit. Lisensi dapat ditentukan sesuai kebutuhan.
