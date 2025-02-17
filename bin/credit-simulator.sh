@@ -1,17 +1,19 @@
 #!/bin/bash
 
-# Menentukan lokasi file JAR
+# Pindah ke direktori root proyek agar bisa dijalankan dari mana saja
+cd "$(dirname "$0")/.."
+
 JAR_FILE="./target/credit-simulator-1.0-SNAPSHOT.jar"
 
-# Cek apakah file JAR ada
-if [[ ! -f "$JAR_FILE" ]]; then
-  echo "Error: File JAR tidak ditemukan di $JAR_FILE"
-  exit 1
+# Periksa apakah JAR sudah ada, jika tidak, build dengan Maven
+if [ ! -f "$JAR_FILE" ]; then
+    echo "JAR file not found! Building with Maven..."
+    mvn clean package -DskipTests
 fi
 
-# Menjalankan aplikasi dengan file input jika diberikan
-if [[ $# -eq 0 ]]; then
-  java -jar "$JAR_FILE"
+# Jalankan aplikasi dengan atau tanpa argumen
+if [ "$#" -gt 0 ]; then
+    java -jar "$JAR_FILE" "$@"
 else
-  java -jar "$JAR_FILE" "$@"
+    java -jar "$JAR_FILE"
 fi
