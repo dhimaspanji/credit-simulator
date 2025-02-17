@@ -1,7 +1,7 @@
 # Credit Simulator
 
 ## 📌 Deskripsi
-Credit Simulator adalah aplikasi berbasis Java yang digunakan untuk mensimulasikan cicilan kredit kendaraan berdasarkan jumlah pinjaman, DP, suku bunga, dan tenor. 
+Credit Simulator adalah aplikasi berbasis Java yang digunakan untuk mensimulasikan cicilan kredit kendaraan berdasarkan jumlah pinjaman, DP, suku bunga, dan tenor.
 
 ---
 ## ⚙️ Cara Build dengan Maven
@@ -61,11 +61,11 @@ Atau tanpa file input:
 ### **2️⃣ Menjalankan Container**
 Tanpa file input:
 ```sh
- docker run -it --rm credit_simulator
+ docker run -it --rm credit-simulator
 ```
 Dengan file input:
 ```sh
- docker run -it --rm credit_simulator file_input.txt
+ docker run -it --rm credit-simulator file_input.txt
 ```
 
 ---
