@@ -61,11 +61,11 @@ Atau tanpa file input:
 ### **2️⃣ Menjalankan Container**
 Tanpa file input:
 ```sh
- docker run -it --rm credit_simulator
+ docker run -it --rm credit-simulator
 ```
 Dengan file input:
 ```sh
- docker run -it --rm credit_simulator file_input.txt
+ docker run -it --rm credit-simulator file_input.txt
 ```
 
 ---
