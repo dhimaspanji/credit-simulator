@@ -1,16 +1,30 @@
-FROM openjdk:17-jdk-slim
+# Gunakan image Maven untuk membangun proyek
+FROM maven:3.9.6-eclipse-temurin-17 AS build
 
+# Set working directory di dalam container
 WORKDIR /app
 
-COPY target/credit_simulator-1.0-SNAPSHOT.jar /app/credit_simulator.jar
+# Salin file konfigurasi Maven (opsional, untuk cache dependency)
+COPY pom.xml .
+RUN mvn dependency:go-offline
 
-COPY file_input.txt /app/file_input.txt
+# Salin seluruh kode sumber ke dalam container
+COPY . .
 
-RUN mkdir -p /app/bin
-COPY /bin/credit_simulator /app/bin/credit_simulator
-COPY /bin/credit_simulator.bat /app/bin/credit_simulator.bat
-RUN chmod +x /app/bin/credit_simulator
+# Jalankan Maven build untuk menghasilkan JAR
+RUN mvn clean package -DskipTests
 
-ENV PATH="/app/bin:${PATH}"
+# Gunakan image OpenJDK 17 yang lebih ringan untuk menjalankan aplikasi
+FROM openjdk:17-jre-slim
 
-ENTRYPOINT ["java", "-jar", "credit_simulator.jar"]
+# Set working directory di dalam container
+WORKDIR /app
+
+# Salin file JAR hasil build dari tahap sebelumnya
+COPY --from=build /app/target/credit-simulator.jar /app/credit-simulator.jar
+
+# Set environment variable untuk file JAR
+ENV JAR_FILE=/app/credit-simulator.jar
+
+# Perintah untuk menjalankan aplikasi
+ENTRYPOINT ["java", "-jar", "/app/credit-simulator.jar"]

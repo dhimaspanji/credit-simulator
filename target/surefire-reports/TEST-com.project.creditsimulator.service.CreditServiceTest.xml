@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.project.creditsimulator.service.CreditServiceTest" time="1.67" tests="6" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.project.creditsimulator.service.CreditServiceTest" time="1.289" tests="6" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -15,7 +15,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="ID"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Eclipse Adoptium\jdk-17.0.10.7-hotspot\bin"/>
-    <property name="sun.java.command" value="C:\Users\Admin\AppData\Local\Temp\surefire11072275417725366509\surefirebooter-20250216234535748_3.jar C:\Users\Admin\AppData\Local\Temp\surefire11072275417725366509 2025-02-16T23-45-35_439-jvmRun1 surefire-20250216234535748_1tmp surefire_0-20250216234535748_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\Admin\AppData\Local\Temp\surefire15321174292812859852\surefirebooter-20250217125842426_3.jar C:\Users\Admin\AppData\Local\Temp\surefire15321174292812859852 2025-02-17T12-58-42_288-jvmRun1 surefire-20250217125842426_1tmp surefire_0-20250217125842426_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\Admin\Documents\Dhimas\workspace\Dhimas\credit-simulator\target\test-classes;C:\Users\Admin\Documents\Dhimas\workspace\Dhimas\credit-simulator\target\classes;C:\Users\Admin\.m2\repository\com\google\code\gson\gson\2.12.1\gson-2.12.1.jar;C:\Users\Admin\.m2\repository\com\google\errorprone\error_prone_annotations\2.36.0\error_prone_annotations-2.36.0.jar;C:\Users\Admin\.m2\repository\org\slf4j\slf4j-api\2.0.9\slf4j-api-2.0.9.jar;C:\Users\Admin\.m2\repository\ch\qos\logback\logback-classic\1.4.12\logback-classic-1.4.12.jar;C:\Users\Admin\.m2\repository\ch\qos\logback\logback-core\1.4.12\logback-core-1.4.12.jar;C:\Users\Admin\.m2\repository\org\junit\jupiter\junit-jupiter\5.12.0-RC2\junit-jupiter-5.12.0-RC2.jar;C:\Users\Admin\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.12.0-RC2\junit-jupiter-api-5.12.0-RC2.jar;C:\Users\Admin\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\Admin\.m2\repository\org\junit\platform\junit-platform-commons\1.12.0-RC2\junit-platform-commons-1.12.0-RC2.jar;C:\Users\Admin\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\Admin\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.12.0-RC2\junit-jupiter-params-5.12.0-RC2.jar;C:\Users\Admin\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.12.0-RC2\junit-jupiter-engine-5.12.0-RC2.jar;C:\Users\Admin\.m2\repository\org\junit\platform\junit-platform-engine\1.12.0-RC2\junit-platform-engine-1.12.0-RC2.jar;C:\Users\Admin\.m2\repository\org\mockito\mockito-core\5.5.0\mockito-core-5.5.0.jar;C:\Users\Admin\.m2\repository\net\bytebuddy\byte-buddy\1.14.6\byte-buddy-1.14.6.jar;C:\Users\Admin\.m2\repository\net\bytebuddy\byte-buddy-agent\1.14.6\byte-buddy-agent-1.14.6.jar;C:\Users\Admin\.m2\repository\org\objenesis\objenesis\3.3\objenesis-3.3.jar;C:\Users\Admin\.m2\repository\org\mockito\mockito-inline\5.2.0\mockito-inline-5.2.0.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -30,7 +30,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\Admin\AppData\Local\Temp\surefire11072275417725366509\surefirebooter-20250216234535748_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Admin\AppData\Local\Temp\surefire15321174292812859852\surefirebooter-20250217125842426_3.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.10+7"/>
@@ -58,19 +58,19 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testGetInterestRate" classname="com.project.creditsimulator.service.CreditServiceTest" time="0.272"/>
-  <testcase name="testInputValidation_UsedVehicle_Valid" classname="com.project.creditsimulator.service.CreditServiceTest" time="0.003"/>
+  <testcase name="testGetInterestRate" classname="com.project.creditsimulator.service.CreditServiceTest" time="0.194"/>
+  <testcase name="testInputValidation_UsedVehicle_Valid" classname="com.project.creditsimulator.service.CreditServiceTest" time="0.002"/>
   <testcase name="testInputValidation_NewVehicle_Valid" classname="com.project.creditsimulator.service.CreditServiceTest" time="0.001"/>
-  <testcase name="testProcessFile(Path)" classname="com.project.creditsimulator.service.CreditServiceTest" time="1.344">
-    <system-out><![CDATA[2025-02-16 23:45:38 [main] INFO  c.p.c.service.CreditService - Line string : Mobil|Baru|2024|500000000|5|175000000
-2025-02-16 23:45:38 [main] INFO  c.p.c.service.CreditService - Processing Credit Data (Line 1): Credit[vehicleType=Mobil, vehicleCondition=Baru, vehicleYear=2024, loanAmount=500000000, tenure=5, downPayment=175000000]
-2025-02-16 23:45:38 [main] INFO  c.p.c.service.CreditService - Year 1: Rp. 5,850,000.00/month, Interest Rate: 8%
-2025-02-16 23:45:38 [main] INFO  c.p.c.service.CreditService - Year 2: Rp. 6,323,850.00/month, Interest Rate: 8.1%
-2025-02-16 23:45:38 [main] INFO  c.p.c.service.CreditService - Year 3: Rp. 6,867,701.10/month, Interest Rate: 8.6%
-2025-02-16 23:45:38 [main] INFO  c.p.c.service.CreditService - Year 4: Rp. 7,492,661.90/month, Interest Rate: 9.1%
-2025-02-16 23:45:38 [main] INFO  c.p.c.service.CreditService - Year 5: Rp. 8,211,957.44/month, Interest Rate: 9.6%
+  <testcase name="testProcessFile(Path)" classname="com.project.creditsimulator.service.CreditServiceTest" time="1.055">
+    <system-out><![CDATA[2025-02-17 12:58:44 [main] INFO  c.p.c.service.CreditService - Line string : Mobil|Baru|2024|500000000|5|175000000
+2025-02-17 12:58:44 [main] INFO  c.p.c.service.CreditService - Processing Credit Data (Line 1): Credit[vehicleType=Mobil, vehicleCondition=Baru, vehicleYear=2024, loanAmount=500000000, tenure=5, downPayment=175000000]
+2025-02-17 12:58:44 [main] INFO  c.p.c.service.CreditService - Year 1: Rp. 5,850,000.00/month, Interest Rate: 8%
+2025-02-17 12:58:44 [main] INFO  c.p.c.service.CreditService - Year 2: Rp. 6,323,850.00/month, Interest Rate: 8.1%
+2025-02-17 12:58:44 [main] INFO  c.p.c.service.CreditService - Year 3: Rp. 6,867,701.10/month, Interest Rate: 8.6%
+2025-02-17 12:58:44 [main] INFO  c.p.c.service.CreditService - Year 4: Rp. 7,492,661.90/month, Interest Rate: 9.1%
+2025-02-17 12:58:44 [main] INFO  c.p.c.service.CreditService - Year 5: Rp. 8,211,957.44/month, Interest Rate: 9.6%
 ]]></system-out>
   </testcase>
-  <testcase name="testInputValidation_InvalidYear" classname="com.project.creditsimulator.service.CreditServiceTest" time="0.009"/>
+  <testcase name="testInputValidation_InvalidYear" classname="com.project.creditsimulator.service.CreditServiceTest" time="0.007"/>
   <testcase name="testCalculateInstallments" classname="com.project.creditsimulator.service.CreditServiceTest" time="0.003"/>
 </testsuite>
