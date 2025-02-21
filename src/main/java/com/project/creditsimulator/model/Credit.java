@@ -8,6 +8,6 @@ public record Credit(
         int vehicleYear,
         BigDecimal loanAmount,
         int tenure,
-        BigDecimal downPayment
+        String downPaymentPercent
 ) {
 }
