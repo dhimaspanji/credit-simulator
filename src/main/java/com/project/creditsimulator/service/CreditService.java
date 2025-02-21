@@ -39,9 +39,9 @@ public class CreditService {
                 if (credits.size() > 1) {
                     logger.info("Credit records:");
                     for (Credit credit : credits) {
-                        logger.info("Vehicle Type: {}, Condition: {}, Year: {}, Amount: {}, Tenure: {}, Down Payment: {}",
+                        logger.info("Vehicle Type: {}, Condition: {}, Year: {}, Amount: {}, Tenure: {}, Down Payment Percent: {}",
                                 credit.vehicleType(), credit.vehicleCondition(), credit.vehicleYear(),
-                                credit.loanAmount(), credit.tenure(), credit.downPayment());
+                                credit.loanAmount(), credit.tenure(), credit.downPaymentPercent());
 
                         // Validation
                         inputValidation(credit);
@@ -102,7 +102,11 @@ public class CreditService {
     }
 
     public BigDecimal[] calculateInstallments(Credit credit) {
-        BigDecimal remainingLoan = credit.loanAmount().subtract(credit.downPayment());
+        BigDecimal downPayment = credit.loanAmount()
+                .multiply(new BigDecimal(credit.downPaymentPercent()).divide(new BigDecimal("100"), 3, RoundingMode.HALF_UP))
+                .setScale(0, RoundingMode.HALF_UP);
+        logger.info("Down Payment : {}", downPayment);
+        BigDecimal remainingLoan = credit.loanAmount().subtract(downPayment);
         BigDecimal[] installments = new BigDecimal[credit.tenure()];
         BigDecimal tenureMonths = BigDecimal.valueOf(12).multiply(BigDecimal.valueOf(credit.tenure()));
 
@@ -131,7 +135,7 @@ public class CreditService {
         return installments;
     }
 
-    private BigDecimal getMonthlyInstallment(int month, int year, BigDecimal totalLoan, BigDecimal tenureMonths) {
+    public BigDecimal getMonthlyInstallment(int month, int year, BigDecimal totalLoan, BigDecimal tenureMonths) {
         BigDecimal monthlyInstallment;
 
         if (year == 0) {
@@ -174,7 +178,7 @@ public class CreditService {
                     Integer.parseInt(parts[2].trim()),
                     new BigDecimal(parts[3].trim()),
                     Integer.parseInt(parts[4].trim()),
-                    new BigDecimal(parts[5].trim())
+                    parts[5].trim()
             );
 
             // Validation
@@ -202,12 +206,17 @@ public class CreditService {
         if (credit.tenure() > 6 || credit.tenure() == 0) {
             throw new IllegalArgumentException("Tenure must not exceed 6 years");
         }
+        if (credit.downPaymentPercent() == null || !credit.downPaymentPercent().matches("^(100|[1-9]?\\d)$")) {
+            throw new IllegalArgumentException("Down payment must be a valid percentage between 0 and 100");
+        }
 
         BigDecimal minDownPayment = Constants.BARU.equalsIgnoreCase(credit.vehicleCondition()) ?
                 credit.loanAmount().multiply(new BigDecimal("0.35")) :
                 credit.loanAmount().multiply(new BigDecimal("0.25"));
-        if (credit.downPayment().compareTo(minDownPayment) < 0) {
-            throw new IllegalArgumentException("Down payment must be at least " + (Constants.BARU.equalsIgnoreCase(credit.vehicleCondition()) ? "35%" : "25%") + " of loan amount");
+        BigDecimal downPayment = credit.loanAmount().multiply(new BigDecimal(credit.downPaymentPercent())
+                .divide(new BigDecimal("100"), 3, RoundingMode.HALF_UP));
+        if (downPayment.compareTo(minDownPayment) < 0) {
+            throw new IllegalArgumentException("Down payment must be at least " + (Constants.BARU.equalsIgnoreCase(credit.vehicleCondition()) ? "35%" : "25%") + " of loan amount.");
         }
     }
 }
