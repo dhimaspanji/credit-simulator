@@ -105,7 +105,6 @@ public class CreditService {
         BigDecimal downPayment = credit.loanAmount()
                 .multiply(new BigDecimal(credit.downPaymentPercent()).divide(new BigDecimal("100"), 3, RoundingMode.HALF_UP))
                 .setScale(0, RoundingMode.HALF_UP);
-        logger.info("Down Payment : {}", downPayment);
         BigDecimal remainingLoan = credit.loanAmount().subtract(downPayment);
         BigDecimal[] installments = new BigDecimal[credit.tenure()];
         BigDecimal tenureMonths = BigDecimal.valueOf(12).multiply(BigDecimal.valueOf(credit.tenure()));
