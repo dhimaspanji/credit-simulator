@@ -197,6 +197,14 @@ public class CreditService {
             throw new IllegalArgumentException("Vehicle year must be a 4-digit number");
         }
 
+        if (!credit.vehicleCondition().matches("^[a-zA-Z]+$")) {
+            throw new IllegalArgumentException("Vehicle condition must contain only letters.");
+        }
+
+        if (!Constants.BARU.equalsIgnoreCase(credit.vehicleCondition()) && !Constants.BEKAS.equalsIgnoreCase(credit.vehicleCondition())) {
+            throw new IllegalArgumentException("Invalid vehicle condition. Only 'BARU' or 'BEKAS' are allowed.");
+        }
+
         if (Constants.BARU.equalsIgnoreCase(credit.vehicleCondition()) && credit.vehicleYear() < currentYear) {
             throw new IllegalArgumentException("For new vehicles, year cannot be less than " + currentYear);
         }
@@ -220,14 +228,6 @@ public class CreditService {
                 .divide(new BigDecimal("100"), 3, RoundingMode.HALF_UP));
         if (downPayment.compareTo(minDownPayment) < 0) {
             throw new IllegalArgumentException("Down payment must be at least " + (Constants.BARU.equalsIgnoreCase(credit.vehicleCondition()) ? "35%" : "25%") + " of loan amount.");
-        }
-
-        if (!Constants.BARU.equalsIgnoreCase(credit.vehicleCondition()) && !Constants.BEKAS.equalsIgnoreCase(credit.vehicleCondition())) {
-            throw new IllegalArgumentException("Invalid vehicle condition. Only 'BARU' or 'BEKAS' are allowed.");
-        }
-
-        if (!credit.vehicleCondition().matches("^[a-zA-Z]+$")) {
-            throw new IllegalArgumentException("Vehicle condition must contain only letters.");
         }
     }
 }
