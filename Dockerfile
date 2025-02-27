@@ -21,7 +21,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Salin file JAR hasil build dari tahap sebelumnya
-COPY target/credit-simulator.jar /app/credit-simulator.jar
+COPY target/credit-simulator-1.0-SNAPSHOT.jar /app/credit-simulator.jar
 
 # Set environment variable untuk file JAR
 ENV JAR_FILE=/app/credit-simulator.jar
