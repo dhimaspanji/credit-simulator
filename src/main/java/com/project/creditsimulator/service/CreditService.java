@@ -196,15 +196,19 @@ public class CreditService {
         if (!String.valueOf(credit.vehicleYear()).matches("\\d{4}")) {
             throw new IllegalArgumentException("Vehicle year must be a 4-digit number");
         }
+
         if (Constants.BARU.equalsIgnoreCase(credit.vehicleCondition()) && credit.vehicleYear() < currentYear) {
             throw new IllegalArgumentException("For new vehicles, year cannot be less than " + currentYear);
         }
+
         if (credit.loanAmount().compareTo(new BigDecimal("1000000000")) > 0) {
             throw new IllegalArgumentException("Loan amount must not exceed 1 billion");
         }
+
         if (credit.tenure() > 6 || credit.tenure() == 0) {
             throw new IllegalArgumentException("Tenure must not exceed 6 years");
         }
+
         if (credit.downPaymentPercent() == null || !credit.downPaymentPercent().matches("^(100|[1-9]?\\d)$")) {
             throw new IllegalArgumentException("Down payment must be a valid percentage between 0 and 100");
         }
@@ -216,6 +220,14 @@ public class CreditService {
                 .divide(new BigDecimal("100"), 3, RoundingMode.HALF_UP));
         if (downPayment.compareTo(minDownPayment) < 0) {
             throw new IllegalArgumentException("Down payment must be at least " + (Constants.BARU.equalsIgnoreCase(credit.vehicleCondition()) ? "35%" : "25%") + " of loan amount.");
+        }
+
+        if (!Constants.BARU.equalsIgnoreCase(credit.vehicleCondition()) && !Constants.BEKAS.equalsIgnoreCase(credit.vehicleCondition())) {
+            throw new IllegalArgumentException("Invalid vehicle condition. Only 'BARU' or 'BEKAS' are allowed.");
+        }
+
+        if (!credit.vehicleCondition().matches("^[a-zA-Z]+$")) {
+            throw new IllegalArgumentException("Vehicle condition must contain only letters.");
         }
     }
 }
