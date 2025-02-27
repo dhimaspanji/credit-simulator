@@ -15,13 +15,13 @@ COPY . .
 RUN mvn clean package -DskipTests
 
 # Gunakan image OpenJDK 17 yang lebih ringan untuk menjalankan aplikasi
-FROM openjdk:17-jre-slim
+FROM openjdk:17-jdk-slim
 
 # Set working directory di dalam container
 WORKDIR /app
 
 # Salin file JAR hasil build dari tahap sebelumnya
-COPY --from=build /app/target/credit-simulator.jar /app/credit-simulator.jar
+COPY target/credit-simulator.jar /app/credit-simulator.jar
 
 # Set environment variable untuk file JAR
 ENV JAR_FILE=/app/credit-simulator.jar
